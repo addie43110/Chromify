@@ -1,5 +1,5 @@
 import math
-from .Color import Color
+from Color import Color
 
 class Converter:
     def __init__(self, r=None, g=None, b=None):

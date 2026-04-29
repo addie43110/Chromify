@@ -50,7 +50,7 @@ The `Color` class represents a color and provides methods for color conversion a
 You can create a `Color` object in the following ways:
 
 ```python
-from chromify import Color
+from Chromify import Color
 
 # Create a Color object from a CSS representation
 color1 = Color("#FF0000")
@@ -62,6 +62,17 @@ color4 = Color(255, 0, 0)
 
 # Create a Color object from another Color object
 color5 = Color(color1)
+```
+
+### Simple printing of colored text
+
+You can call a `Color` object to returned colored text. Note: the color is then reset at the end of the string.
+
+```py
+from Chromify import Color
+
+red = Color("#FF0000")
+print(f"Only {red("red")} should be {red("red")}")
 ```
 
 # Color Conversion
@@ -109,7 +120,7 @@ The `Converter` class is a subclass of Color and adds additional functionalities
 You can create a `Converter` object in the same ways as a Color object:
 
 ```python
-from chromify import Converter
+from Chromify import Converter
 
 # Create a Converter object from a CSS representation
 converter1 = Converter("#FF0000")

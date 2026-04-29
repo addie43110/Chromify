@@ -247,8 +247,12 @@ class Color:
     def __bool__(self):
         brightness = (self.r + self.g + self.b) // 3
         return brightness > 0
+
+    def __call__(self, txt: str):
+        (r,g,b) = (self.r, self.g, self.b)
+        return f"{'\033[38;2;{};{};{}m'.format(r, g, b)}{txt}\033[39m"
     
-    def __call__(self, *args, **kwargs):
+    '''def __call__(self, *args, **kwargs):
         def back():
             return "\033[48;2;{};{};{}m".format(self.r, self.g, self.b)
 
@@ -256,7 +260,9 @@ class Color:
             return "\033[38;2;{};{};{}m".format(self.r, self.g, self.b)
 
         # Devuelve un objeto que también tiene métodos definidos
-        return back, fore
+        return back, fore'''
+
+
     
     def __hash__(self):
         attributes = [value for attr, value in self.__dict__.items() if not callable(value)]

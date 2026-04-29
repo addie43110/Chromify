@@ -1,7 +1,7 @@
 import os
 import random
-from .Color import Color
-from .Converter import Converter
+from Color import Color
+from Converter import Converter
 
 def init():
     if os.name == 'nt':
@@ -172,6 +172,15 @@ def color(rr, gg=None, bb=None, background=False):
     g = color.g
     b = color.b
     return '\033[{};2;{};{};{}m'.format(48 if background else 38, r, g, b)
+
+def color_printer(rr, gg=None, bb=None, background=False):
+    converter = Converter(rr, gg, bb)
+    color = converter.to_color()
+    r = color.r
+    g = color.g
+    b = color.b
+    fore_print = lambda txt: f"{'\033[{};2;{};{};{}m'.format(48 if background else 38, r, g, b)}{txt}{Fore.RESET}"
+    return fore_print
 
 def gradient(start_color, end_color, text: str, background = False):
     start_color = Converter(start_color).to_color().RGBTOUPLE
