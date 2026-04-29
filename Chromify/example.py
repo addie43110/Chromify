@@ -1,4 +1,4 @@
-from Chromify import color_printer, Color, steps, gradient
+from Chromify import Color, steps, gradient
 
 def main():
     # Print text in a specific color
